@@ -99,11 +99,12 @@ const mockPosts = [{
   thumbnail_alt: "weird image",
 },{
   id:10,
-  title: "FITC LOGO",
+  title: "FITC Type",
   slug: "fitc-logo-10",
   category: "Work",
   short_description: "Alien fuck off, suck off. No alien. Alient alert!.",
-  thumbnail: "x.png",
+  thumbnail: "x.mp4",
+  isVideo:true,
   thumbnail_width: 1920,
   thumbnail_height: 1080,
   thumbnail_alt: "weird image",
@@ -116,7 +117,7 @@ export default component$(() => {
     <>
       <div class="flex-col mx-auto max-w-screen-3xl ">
         {/* <FramerTest client:idle /> */}
-        <Header class="mb-30"/>
+        <Header class="mb-40"/>
         <Portfolio items={mockPosts}
         />
       </div>
@@ -125,7 +126,7 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: "Welcome to Qwik",
+  title: "Starling— One of a kind creative development collective.",
   meta: [
     {
       name: "description",

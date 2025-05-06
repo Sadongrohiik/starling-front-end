@@ -2,37 +2,41 @@ import { component$ } from "@builder.io/qwik";
 import Logo from "~/assets/logo.svg?jsx";
 import { Navbar } from "./Navbar/Navbar";
 import { HamburgerMenu } from "./HamburgerMenu/HamburgerMenu";
+import { Search } from "./Search/Search";
 export interface HeaderProps {
   class?: string;
 }
 
-const navItems=[
-  {text: "About", href:"/about"},
-  {text: "Work", href:"/work"}
-]
-const tagline= {l1:"Radical Creativity—" ,l2:"Supercharged Technology."};
+const navItems = [
+  { text: "Work", href: "/work" },
+  { text: "About", href: "/about" },
+];
+const tagline = { l1: "Radical Creativity—", l2: "Supercharged Technology." };
 const aboutText = `Starling is a global creative collective that creates innovative
 brands, builds disruptive experiences, and solves unique challenges
             through art, design, and cutting-edge technology.`;
 
 export const Header = component$<HeaderProps>((props) => {
   return (
-    <div class={`w-full flex flex-row ${props.class}`}>
-      <div class="left-header w-full flex flex-col md:flex-row md:w-2/3">
-        <Logo class="mt-1 mr-13 h-10 w-10 md:h-26 md:min-w-20" />
+    <div class={`flex w-full flex-col-reverse md:flex-row ${props.class}`}>
+      <a href="/">
+        <Logo class="absolute top-3 left-3 md:top-13 md:left-14 h-14 w-14 md:h-34 md:min-w-28 z-50" />
+      </a>
+
+      <div class="left-header flex w-full flex-col md:w-2/3 md:flex-row">
+        <div class="mt-1 mr-22 h-10 w-10 md:h-26 md:min-w-20 invisible md:visible"></div>
         <div class="mt-25 md:mt-0">
-          <h1 class="mb-5 text-3xl">
-            {tagline.l1} <br/>
+          <h1 class="mb-5 text-[clamp(1.75rem,2vw,2.25rem)] ">
+            {tagline.l1} <br />
             {tagline.l2}
           </h1>
-          <p>
-            {aboutText}
-          </p>
+          <p class="font-fraktion w-full md:w-3/4 text-[clamp(1.2rem,2vw,1.5rem)]  text-gray-700">{aboutText}</p>
         </div>
       </div>
-      <div class="right-header md:w-2/6 flex justify-end">
-      <Navbar links={navItems}/>
-      <HamburgerMenu links={navItems}/>
+      <div class="right-header flex justify-end w-full md:w-2/6">
+        <Navbar class="text-2xl invisible lg:visible" links={navItems} />
+        <Search class="mr-10" />
+        <HamburgerMenu links={navItems} />
       </div>
     </div>
   );

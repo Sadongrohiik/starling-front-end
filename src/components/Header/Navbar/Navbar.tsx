@@ -9,7 +9,7 @@ export const Navbar = component$<NavbarProps>((props) => {
   return (
     <div class={`flex flex-row ${props.class}`}>
       {props.links.map((item) =>
-        <a class="mr-10  " key={item.text} href={item.href}>{item.text}</a>
+        <a class="mr-10 hover:text-gray-500 transition-all" key={item.text} href={item.href}>{item.text}</a>
       )}
     </div>
   );

@@ -4,6 +4,7 @@ interface PortfolioItemProps {
   id: number;
   slug: string;
   class?: string;
+  isVideo?:boolean;
   thumbnail: string;
   thumbnail_width: number;
   thumbnail_height: number;
@@ -21,7 +22,7 @@ export interface PortfolioProps {
 
 export const Portfolio = component$<PortfolioProps>((props) => {
   return (
-    <div class={"portfolio-grid grid w-full grid-cols-3 gap-6 " + props.class}>
+    <div class={"portfolio-grid grid w-full grid-cols-5 gap-8 " + props.class}>
       {props.items.map((item, index) => {
         const isWideItem =
           index === 0 || (index + 1) % 4 === 0 || index % 4 === 0;
@@ -30,8 +31,8 @@ export const Portfolio = component$<PortfolioProps>((props) => {
             isWideItem={isWideItem}
             class={
               isWideItem
-                ? "col-span-3 md:col-span-2"
-                : "col-span-3 md:col-span-1"
+                ? "col-span-5 md:col-span-3"
+                : "col-span-5 md:col-span-2"
             }
             id={item.id}
             key={item.id}
@@ -43,6 +44,7 @@ export const Portfolio = component$<PortfolioProps>((props) => {
             thumbnail_width={item.thumbnail_width}
             thumbnail_height={item.thumbnail_height}
             thumbnail_alt={item.thumbnail_alt}
+            isVideo={item.isVideo}
           />
         );
       })}
@@ -55,27 +57,39 @@ const PortfolioItem = component$<PortfolioItemProps>((props) => {
     <div
       class={
         "portfolio-item mb-30 " +
-        (props.isWideItem
-          ? "col-span-3 md:col-span-2"
-          : "col-span-3 md:col-span-1") +
         props.class
       }
     >
-      <a href={`works/${props.slug}`}>
-        <img
-          width={props.thumbnail_width}
-          height={props.thumbnail_height}
-          alt={props.thumbnail_alt}
-          src={props.thumbnail}
-        />
-        <div class="portfolio-item-text mt-10 flex flex-wrap justify-center">
-          <h3 class={`w-full ${props.isWideItem ? "md:w-5/9" : "md:w-1/2"}`}>
+      <a href={`work/${props.slug}`}>
+      {props.isVideo?
+        <video
+        autoplay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-label={props.thumbnail_alt}
+        style={{ 'object-fit': 'cover' }}
+      >
+        <source src={props.thumbnail} type="video/mp4" />
+        Your browser does not support HTML5 video.
+      </video>
+      :
+      <img
+      width={props.thumbnail_width}
+      height={props.thumbnail_height}
+      alt={props.thumbnail_alt}
+      src={props.thumbnail}
+    />
+}
+        <div class="portfolio-item-text mt-10 flex flex-wrap justify-center text-[clamp(1.1rem,1.5vw,1.4rem)]">
+          <h3 class={`w-full mb-5 ${props.isWideItem ? "md:w-5/9" : "md:w-1/2"}`}>
             {props.category}
           </h3>
           <div
             class={`right-text w-full ${props.isWideItem ? "md:w-4/9" : "md:w-1/2"}`}
           >
-            <h3>{props.title}</h3>
+            <h3 class="mb-3">{props.title}</h3>
             <p class="text-gray-400">{props.short_description}</p>
           </div>
         </div>
