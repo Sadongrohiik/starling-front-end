@@ -18,22 +18,22 @@ brands, builds disruptive experiences, and solves unique challenges
 
 export const Header = component$<HeaderProps>((props) => {
   return (
-    <div class={`flex w-full flex-col-reverse md:flex-row ${props.class}`}>
+    <div class={`flex w-full flex-col-reverse lg:flex-row ${props.class}`}>
       <a href="/">
-        <Logo class="absolute top-3 left-3 md:top-13 md:left-14 h-14 w-14 md:h-34 md:min-w-28 z-50" />
+        <Logo class="absolute top-5 left-5 md:top-6 md:left-6 lg:top-10 lg:left-11 h-14 w-14 md:h-24 md:min-w-22 lg:h-34 lg:min-w-28 z-50" />
       </a>
 
-      <div class="left-header flex w-full flex-col md:w-2/3 md:flex-row">
-        <div class="mt-1 mr-22 h-10 w-10 md:h-26 md:min-w-20 invisible md:visible"></div>
-        <div class="mt-25 md:mt-0">
+      <div class="left-header flex w-full flex-col md:w-full md:flex-row">
+        <div class="mt-1 h-10 w-10 lg:h-26 lg:min-w-40 invisible lg:visible"></div>
+        <div class="mt-25 lg:mt-0">
           <h1 class="mb-5 text-[clamp(1.75rem,2vw,2.25rem)] ">
             {tagline.l1} <br />
             {tagline.l2}
           </h1>
-          <p class="font-fraktion w-full md:w-3/4 text-[clamp(1.2rem,2vw,1.5rem)]  text-gray-700">{aboutText}</p>
+          <p class="font-fraktion w-full md:w-3/4 text-[clamp(1.2rem,1.5vw,1.9rem)]">{aboutText}</p>
         </div>
       </div>
-      <div class="right-header flex justify-end w-full md:w-2/6">
+      <div class="right-header flex justify-end w-full lg:w-2/6">
         <Navbar class="text-2xl invisible lg:visible" links={navItems} />
         <Search class="mr-10" />
         <HamburgerMenu links={navItems} />

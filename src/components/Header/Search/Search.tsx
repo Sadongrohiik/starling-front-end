@@ -38,7 +38,7 @@ export const Search = component$<SearchProps>((props) => {
       <SearchOverlay
         isOpen={overlay.visible}
         class={
-          overlay.visible ? "visible opacity-100" : "invisible opacity-0"
+          overlay.visible ? "visible opacity-100 top-0" : "invisible opacity-0 top-10"
         }
       />
     </div>
@@ -49,20 +49,20 @@ const SearchOverlay = component$<SearchOverlayProps>((props) => {
   const overlay = useContext(CTX);
   return (
     <div
-      class={`fixed top-0 left-0 z-10 flex h-full w-full flex-col items-center bg-white p-4 md:p-15 transition-all ${props.class}`}
+      class={`fixed left-0 z-10 flex h-full w-full flex-col items-center bg-white p-6 lg:p-15 transition-all ${props.class}`}
     >
       <button
         onClick$={() => {
           overlay.visible = false;
           document.body.classList.remove('overflow-hidden');
         }}
-        class={`search-close-button absolute top-4 right-4 md:top-15 md:right-15 cursor-pointer bg-white transition-all hover:bg-gray-100`}
+        class={`search-close-button absolute top-3 right-3 md:top-6 md:right-6 lg:top-13 lg:right-11 cursor-pointer bg-white transition-all hover:bg-gray-100`}
       >
-        <HiXMarkSolid class="text-3xl md:text-5xl" />
+        <HiXMarkSolid class="text-4xl lg:text-5xl" />
       </button>
       <div class="search-content h-full w-full md:w-1/2">
-        <div class="h-2/5 w-full">
-          <h3 class="text-[26px] invisible md:visible">Search</h3>
+        <div class="h-4/10 w-full">
+          <h3 class="md: text-[24px] lg:text-[26px] invisible md:visible">Search</h3>
         </div>
         <div class="search-box flex w-full flex-row border-b-1 border-b-gray-300 pb-4">
           <input
@@ -72,7 +72,7 @@ const SearchOverlay = component$<SearchOverlayProps>((props) => {
             id="search-var"
             placeholder="Search for. . ."
           />
-          <HiMagnifyingGlassSolid class="text-4xl ml-auto invisible md:visible min-w-12" />
+          <HiMagnifyingGlassSolid class="text-4xl ml-auto visible md:invisible lg:visible min-w-12" />
         </div>
       </div>
     </div>
