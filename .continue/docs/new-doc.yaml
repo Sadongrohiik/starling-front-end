@@ -1,0 +1,6 @@
+name: Qwik
+version: 0.0.1
+schema: v1
+docs:
+  - name: Qwik
+    startUrl: https://qwik.dev/docs/

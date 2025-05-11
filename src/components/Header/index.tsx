@@ -11,6 +11,24 @@ const navItems = [
   { text: "Work", href: "/work" },
   { text: "About", href: "/about" },
 ];
+
+const hamburgerItems=[
+  {text:"Work", href:"/work"},
+  {text:"About", href:"/about"},
+  {text:"Contact", href:"/contact"},
+  {text:"Blog", href:"/blog"},
+  {text:"News", href:"/news"},
+
+]
+
+const socialLinks=[
+  {text: "Instagram", href:"https://www.instagram.com/"},
+  {text: "Dribbble", href:"https://dribbble.com/StarlingStudio"},
+  {text: "Vimeo", href:"https://vimeo.com/"},
+
+]
+
+const copyright="© 2025 STARLING";
 const tagline = { l1: "Radical Creativity—", l2: "Supercharged Technology." };
 const aboutText = `Starling is a global creative collective that creates innovative
 brands, builds disruptive experiences, and solves unique challenges
@@ -36,7 +54,7 @@ export const Header = component$<HeaderProps>((props) => {
       <div class="right-header flex justify-end w-full lg:w-2/6">
         <Navbar class="text-2xl invisible lg:visible" links={navItems} />
         <Search class="mr-10" />
-        <HamburgerMenu links={navItems} />
+        <HamburgerMenu links={hamburgerItems} socialLinks={socialLinks} copyrightText={copyright}/>
       </div>
     </div>
   );

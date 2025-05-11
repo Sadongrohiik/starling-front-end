@@ -3,6 +3,31 @@
 @theme{
     --breakpoint-3xl: 120rem;
     --font-fraktion: Fraktion, sans-serif;
+    --color-digitalInk: #5018D3;
+    --color-digitalInk-80: #6A36E0;
+    --color-digitalInk-60: #8554EC;
+    --color-digitalInk-40: #A072F8;
+    --color-digitalInk-20: #BBA0FF;
+    --color-digitalInkDark:#601FF8;
+    --color-powerlight-red:#FE4322;
+    --color-powerlight-red-80: #FF6040;
+    --color-powerlight-red-60: #FF7D5E;
+    --color-powerlight-red-40: #FF997C;
+    --color-powerlight-red-20: #FFB69A;
+    --color-neon-green:#9df8b0;
+    --color-neon-green-80: #B0F9C4;
+    --color-neon-green-60: #C3FAD8;
+    --color-neon-green-40: #D6FBEB;
+    --color-neon-green-20: #E9FDF9;
+    --color-retro-yellow:#f7b345;
+    --color-retro-yellow-80: #F8C663;
+    --color-retro-yellow-60: #F9D481;
+    --color-retro-yellow-40: #FAE29F;
+    --color-retro-yellow-20: #FBF0BD;
+    --color-retro-white:#fffdfa;
+    --color-crt-black:#010101;
+    --color-electric-blue:#242FFF;
+
 }
 
 @font-face {
