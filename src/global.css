@@ -14,6 +14,7 @@
     --color-powerlight-red-60: #FF7D5E;
     --color-powerlight-red-40: #FF997C;
     --color-powerlight-red-20: #FFB69A;
+    --color-powerlight-red-grad-end: FF8361;
     --color-neon-green:#9df8b0;
     --color-neon-green-80: #B0F9C4;
     --color-neon-green-60: #C3FAD8;
@@ -29,7 +30,10 @@
     --color-electric-blue:#242FFF;
 
 }
-
+/* svg fill colors */
+.fill-ink{
+  fill: #5018d3;
+}
 @font-face {
     font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
     font-family: 'Light';

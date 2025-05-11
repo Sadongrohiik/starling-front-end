@@ -38,7 +38,7 @@ export const HamburgerMenu = component$<HamburgerMenuProps>((props) => {
         >
           <HiXMarkSolid class="text-4xl lg:text-5xl" />
         </button>
-        <div class="text-digitalInk hover:text-digitalInkDark col-start-0 row-start-4 flex h-full flex-col items-start justify-center md:col-start-10 md:row-start-3">
+        <div class="text-digitalInk hover:text-digitalInkDark col-start-0 mt-30 md:mt-0 flex h-full flex-col items-start justify-center md:col-start-10 row-start-3">
           <ul class="space-y-8">
             {props.links.map((link) => (
               <li key={link.href} class="group relative">
@@ -59,16 +59,17 @@ export const HamburgerMenu = component$<HamburgerMenuProps>((props) => {
             ))}
           </ul>
         </div>
-        <div class="copyright mt-3 font-fraktion font-light col-span-4 col-start-0 row-end-8 text-2xl justify-center">
+        <div class="copyright mt-3 font-fraktion font-light col-span-4 col-start-0 row-end-8 text-xl md:text-2xl justify-center">
           {props.copyrightText}
         </div>
-        <div class="social ml-3 col-span-7 col-start-10 row-end-8 items-center justify-center">
-          <ul class="flex space-x-42">
+        <div class="social ml-3 col-span-7 col-start-19 mb-3 md:mb-0 md:col-start-10 row-end-8 items-center justify-center">
+          <ul class="flex flex-col md:flex-row justify-between items-end w-full">
             {props.socialLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  class=" hover:opacity-80 text-2xl transition-all"
+
+                  class=" hover:opacity-80 text-xl lg:text-2xl transition-all"
                 >
                   {link.text}
                 </a>

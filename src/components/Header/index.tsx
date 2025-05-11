@@ -1,5 +1,4 @@
 import { component$ } from "@builder.io/qwik";
-import Logo from "~/assets/logo.svg?jsx";
 import { Navbar } from "./Navbar/Navbar";
 import { HamburgerMenu } from "./HamburgerMenu/HamburgerMenu";
 import { Search } from "./Search/Search";
@@ -37,9 +36,7 @@ brands, builds disruptive experiences, and solves unique challenges
 export const Header = component$<HeaderProps>((props) => {
   return (
     <div class={`flex w-full flex-col-reverse lg:flex-row ${props.class}`}>
-      <a href="/">
-        <Logo class="absolute top-5 left-5 md:top-6 md:left-6 lg:top-10 lg:left-11 h-14 w-14 md:h-24 md:min-w-22 lg:h-34 lg:min-w-28 z-50" />
-      </a>
+
 
       <div class="left-header flex w-full flex-col md:w-full md:flex-row">
         <div class="mt-1 h-10 w-10 lg:h-26 lg:min-w-40 invisible lg:visible"></div>

@@ -23,6 +23,7 @@ export interface PortfolioProps {
 export const Portfolio = component$<PortfolioProps>((props) => {
   return (
     <div class={"portfolio-grid grid w-full grid-cols-5 md:gap-4 lg:gap-8 " + props.class}>
+      
       {props.items.map((item, index) => {
         const isWideItem =
           index === 0 || (index + 1) % 4 === 0 || index % 4 === 0;
