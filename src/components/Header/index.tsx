@@ -4,6 +4,7 @@ import { HamburgerMenu } from "./HamburgerMenu/HamburgerMenu";
 import { Search } from "./Search/Search";
 export interface HeaderProps {
   class?: string;
+  style?: string;
 }
 
 const navItems = [
@@ -24,6 +25,7 @@ const socialLinks=[
   {text: "Instagram", href:"https://www.instagram.com/"},
   {text: "Dribbble", href:"https://dribbble.com/StarlingStudio"},
   {text: "Vimeo", href:"https://vimeo.com/"},
+  {text: "GitHub", href:"https://GitHub.com/"}
 
 ]
 
@@ -35,7 +37,7 @@ brands, builds disruptive experiences, and solves unique challenges
 
 export const Header = component$<HeaderProps>((props) => {
   return (
-    <div class={`flex w-full flex-col-reverse lg:flex-row ${props.class}`}>
+    <div class={`flex w-full flex-col-reverse lg:flex-row ${props.class}`} style={props.style}>
 
 
       <div class="left-header flex w-full flex-col md:w-full md:flex-row">

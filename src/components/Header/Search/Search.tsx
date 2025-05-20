@@ -27,6 +27,7 @@ export const Search = component$<SearchProps>((props) => {
   return (
     <div class={` ${props.class}`}>
       <button
+      name="menu"
         class="cursor-pointer transition-all hover:opacity-60"
         onClick$={() => {
           overlay.visible = true;

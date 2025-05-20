@@ -13,16 +13,18 @@ interface PortfolioItemProps {
   short_description: string;
   category: string;
   isWideItem?: boolean;
+
 }
 
 export interface PortfolioProps {
   class?: string;
+  style?: string;
   items: PortfolioItemProps[];
 }
 
 export const Portfolio = component$<PortfolioProps>((props) => {
   return (
-    <div class={"portfolio-grid grid w-full grid-cols-5 md:gap-4 lg:gap-8 " + props.class}>
+    <div class={"portfolio-grid grid w-full grid-cols-5 md:gap-4 lg:gap-8 " + props.class} style={props.style}>
       
       {props.items.map((item, index) => {
         const isWideItem =
@@ -70,13 +72,14 @@ const PortfolioItem = component$<PortfolioItemProps>((props) => {
         playsInline
         preload="auto"
         aria-label={props.thumbnail_alt}
-        style={{ 'object-fit': 'cover' }}
+        class="w-full object-cover"
       >
         <source src={props.thumbnail} type="video/mp4" />
         Your browser does not support HTML5 video.
       </video>
       :
       <img
+      class="w-full object-cover"
       width={props.thumbnail_width}
       height={props.thumbnail_height}
       alt={props.thumbnail_alt}
@@ -91,7 +94,7 @@ const PortfolioItem = component$<PortfolioItemProps>((props) => {
             class={`right-text w-full ${props.isWideItem ? "md:w-4/9" : "md:w-1/2"}`}
           >
             <h3 class="mb-3">{props.title}</h3>
-            <p class="text-gray-400">{props.short_description}</p>
+            <p class="text-gray-800">{props.short_description}</p>
           </div>
         </div>
       </a>

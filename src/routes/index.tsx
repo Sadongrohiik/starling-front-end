@@ -1,4 +1,4 @@
-import { component$, useStore, $ } from "@builder.io/qwik";
+import { component$, useTask$, useSignal} from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Portfolio } from "~/components/Portfolio/Portfolio";
 import { Header } from "~/components/Header";
@@ -121,22 +121,27 @@ const mockPosts = [
 ];
 
 export default component$(() => {
-  const state = useStore({scrollY:0});
+const height= useSignal(0);
+const divRef = useSignal<HTMLElement>();
 
-  const handleScroll= $(()=>{ //change this to usevisibletask
-    state.scrollY = window.scrollY;
-  })
+useTask$(async ()=>{
+  if(divRef.value){
+    const rect = divRef.value.clientHeight;
+    height.value = rect;
+  }
+})
 
   return (
     <>
-      <div class="max-w-screen z-10 mx-auto flex-col overflow-hidden ">
+      <div class="main-container max-w-screen z-10 mx-auto flex-col overflow-hidden" ref={divRef}>
         {/* <FramerTest client:idle /> */}
         <Header class="mb-40 z-20 relative" />
+
         <Portfolio items={mockPosts} class="z-10 relative" />
-        <Shardbg class="z-0" style={ `transform: translateY(${state.scrollY * 0.6}px)` }
-        />
+
       </div>
-      <div window:onScroll$={handleScroll}></div>
+      <Shardbg class="z-0" maxHeight={divRef.value?.clientHeight}
+        />
     </>
   );
 });
