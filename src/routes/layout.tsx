@@ -33,7 +33,7 @@ export default component$(() => {
       <a href="/">
         <Logo class="absolute top-5 left-5 z-50 h-14 w-14 md:top-6 md:left-6 md:h-24 md:min-w-22 lg:top-10 lg:left-11 lg:h-34 lg:min-w-28" />
       </a>
-      <div class="bg-retro-white p-6 md:p-6 lg:p-10">
+      <div class="bg-white p-6 md:p-6 lg:p-10">
         <Slot />
       </div>
       <Footer

@@ -1,4 +1,4 @@
-import { component$, useSignal } from "@builder.io/qwik";
+import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 // import Shard1 from "~/assets/shards/shard_1.svg?jsx";
 import {
   
@@ -16,9 +16,25 @@ export interface HamburgerMenuProps {
 
 export const HamburgerMenu = component$<HamburgerMenuProps>((props) => {
   const isOpen = useSignal(false);
+  const isScrolled = useSignal(false);
   const isOverlayOpen = useSignal(false);
+
+  useVisibleTask$(() => {
+    const handleScroll = () => {
+      // Adjust this value to match your navbar height
+      const navbarHeight = 80;
+      isScrolled.value = window.scrollY > navbarHeight;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // run once on mount
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
+
+
   return (
-    <div class={` ${props.class}`}>
+    <div class={`${isScrolled.value? "bg-white fixed top-10 z-20 right-15 w-14 h-14 flex items-center justify-center rounded-full" : ""} ${props.class}`}>
       
       <button
         class="cursor-pointer transition-all hover:opacity-60"
@@ -31,7 +47,7 @@ export const HamburgerMenu = component$<HamburgerMenuProps>((props) => {
         <HiBars3Solid class="text-3xl" />
       </button>
       <div
-        class={`bg-retro-white fixed left-0 z-10 grid h-full w-full grid-cols-19 grid-rows-6 items-center p-6 transition-all lg:p-15 ${isOverlayOpen.value ? "visible top-0 opacity-100" : "invisible top-10 opacity-0"}`}
+        class={`bg-white fixed left-0 z-10 grid h-full w-full grid-cols-19 grid-rows-6 items-center p-6 transition-all lg:p-15 ${isOverlayOpen.value ? "visible top-0 opacity-100" : "invisible top-10 opacity-0"}`}
       >
         <button name="search"
           onClick$={() => {

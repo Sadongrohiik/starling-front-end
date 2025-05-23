@@ -13,6 +13,7 @@ interface PortfolioItemProps {
   short_description: string;
   category: string;
   isWideItem?: boolean;
+  gridType?: "large-small" | "equal" | "list";
 
 }
 
@@ -64,6 +65,7 @@ const PortfolioItem = component$<PortfolioItemProps>((props) => {
       }
     >
       <a href={`work/${props.slug}`}>
+      <div class="portfolio-item-thumbnail relative overflow-hidden w-full ">
       {props.isVideo?
         <video
         autoplay
@@ -86,15 +88,16 @@ const PortfolioItem = component$<PortfolioItemProps>((props) => {
       src={props.thumbnail}
     />
 }
-        <div class="portfolio-item-text mt-10 flex flex-wrap justify-center text-[clamp(1.1rem,1.5vw,1.4rem)]">
+</div>
+        <div class="portfolio-item-text mt-10 flex flex-wrap justify-center text-[clamp(1.1rem,1.5vw,1.6rem)]">
           <h3 class={`w-full mb-5 ${props.isWideItem ? "md:w-5/9" : "md:w-1/2"}`}>
             {props.category}
           </h3>
           <div
             class={`right-text w-full ${props.isWideItem ? "md:w-4/9" : "md:w-1/2"}`}
           >
-            <h3 class="mb-3">{props.title}</h3>
-            <p class="text-gray-800">{props.short_description}</p>
+            <h3 class="mb-6">{props.title}</h3>
+            <p class="text-gray-400 line-clamp-2">{props.short_description}</p>
           </div>
         </div>
       </a>
