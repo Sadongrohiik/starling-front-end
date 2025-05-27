@@ -1,6 +1,5 @@
 import { component$, Resource, useResource$ } from "@builder.io/qwik";
 import { Header } from "~/components/Header";
-import { Portfolio } from "~/components/Portfolio/Portfolio";
 import { CategoryLink } from "~/components/Work/CategoryLink";
 import { Works } from "~/components/Work/Works";
 
@@ -16,27 +15,6 @@ export default component$(() => {
     }));
   });
 
-  const worksResource = useResource$<any[]>(async () => {
-    const response = await fetch("http://localhost:3000/api/works");
-    const data = await response.json();
-    // console.log(data.docs);
-
-    return data.docs.map((item: any) => ({
-      id: item.id,
-      title: item.title,
-      slug: item.slug,
-      category: item.categories[0].title,
-      short_description: item.shortDescription,
-      thumbnail:
-        item.heroMedia.type === "video"
-          ? "http://localhost:3000" + item.heroMedia.video?.url
-          : "http://localhost:3000" + item.heroMedia.image?.url,
-      thumbnail_width: item.heroMedia.image?.width || 1920,
-      thumbnail_height: item.heroMedia.image?.height || 1080,
-      thumbnail_alt: item.thumbnail_alt,
-      isVideo: item.heroMedia.type === "video" || false, // Assuming isVideo is optional
-    }));
-  });
 
   return (
     <div>

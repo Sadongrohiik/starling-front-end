@@ -6,8 +6,8 @@ import { Works } from '~/components/Work/Works';
 export default component$(() => {
   const location=useLocation();
   return (
-    <div>
-      <Header/>
+    <div class="">
+      <Header class="relative z-20"/>
       <Works category={location.params.slug} />
     </div>
   );
