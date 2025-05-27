@@ -1,24 +1,18 @@
-import {
-  component$,
-  useTask$,
-  useSignal,
-  Resource,
-  useResource$,
-} from "@builder.io/qwik";
+import { component$, Resource, useResource$ } from "@builder.io/qwik";
 import { Header } from "~/components/Header";
 import { Portfolio } from "~/components/Portfolio/Portfolio";
 import { CategoryLink } from "~/components/Work/CategoryLink";
+import { Works } from "~/components/Work/Works";
 
 export default component$(() => {
   const categoriesResource = useResource$<any[]>(async () => {
     const response = await fetch("http://localhost:3000/api/categories");
     const data = await response.json();
-    console.log(data.docs[0].label);
 
     return data.docs.map((category: any) => ({
       id: category.id,
       label: category.title,
-      slug: category.slug ,
+      slug: category.slug,
     }));
   });
 
@@ -46,28 +40,27 @@ export default component$(() => {
 
   return (
     <div>
-      <Header class="relative z-20 mb-40" />
-      <div class="text-[clamp(1rem,1.5vw,1.5rem)] flex mb-20 w-full md:w-2/3 flex-wrap ">
-      <Resource
-      value={categoriesResource}
-      onPending={() => <div>Loading...</div>}
-      onRejected={() => <div>Error loading data</div>}
-      onResolved={(categories) => (
-        categories.map ((category) => (
-          // <a key={category.id} href={"/category/" + category.slug}> {category.label}</a>
-          <CategoryLink key={category.id} slug={"/category/" + category.slug} label={category.label} isActive={false} class="w-[clamp(10rem,15vw,15rem)] mt-6" />
-        ))
-      )}
-    />
-    </div>
-      <Resource
-        value={worksResource}
-        onPending={() => <div>Loading...</div>}
-        onRejected={() => <div>Error loading data</div>}
-        onResolved={(items) => (
-          <Portfolio items={items} class="relative z-10" />
-        )}
-      />
+      <Header class="relative z-20" />
+      <div class="mb-20 flex w-full flex-wrap text-[clamp(1rem,1.5vw,1.5rem)] md:w-2/3">
+        <Resource
+          value={categoriesResource}
+          onPending={() => <div>Loading...</div>}
+          onRejected={() => <div>Error loading data</div>}
+          onResolved={(categories) =>
+            categories.map((category) => (
+              // <a key={category.id} href={"/category/" + category.slug}> {category.label}</a>
+              <CategoryLink
+                key={category.id}
+                slug={category.slug}
+                label={category.label}
+                isActive={false}
+                class="mt-6 w-[clamp(10rem,15vw,15rem)]"
+              />
+            ))
+          }
+        />
+      </div>
+      <Works />
     </div>
   );
 });

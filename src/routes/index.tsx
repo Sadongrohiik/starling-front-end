@@ -166,7 +166,7 @@ export default component$(() => {
         ref={divRef}
       >
         {/* <FramerTest client:idle /> */}
-        <Header class="relative z-20 mb-40" />
+        <Header class="relative z-20" />
 
         <Resource
           value={worksResource}
@@ -178,20 +178,16 @@ export default component$(() => {
         />
         <a
           href="/work"
-          class="group hover:text-powerlight-red duration-300 h-20 relative z-10 mx-auto mb-40 block w-1/3 overflow-hidden px-5 py-5 text-center text-3xl capitalize transition-all"
+          class="group hover:text-powerlight-red h-20 relative z-10 mx-auto mt-20 mb-40 block w-1/3 overflow-hidden px-5 py-5 text-center text-3xl capitalize transition-all"
         >
           <div class="flex w-full justify-between">
             <div class="w-1/2 flex-col">
-              <div class="text-left transition-transform duration-300 group-hover:-translate-y-20">
-                View All Projects
-              </div>
-              <div class="text-left translate-y-20 transition-transform duration-300 group-hover:-translate-y-10">
+              <div class="text-left transition-transform duration-300">
                 View All Projects
               </div>
             </div>
             <div class="flex-col">
-              <HiArrowUpRightSolid class="transition-transform duration-300 group-hover:-translate-y-20 text-3xl" />
-              <HiArrowUpRightSolid class="translate-y-20 transition-transform duration-300 group-hover:-translate-y-8 text-3xl" />
+              <HiArrowUpRightSolid class="" />
             </div>
           </div>
         </a>

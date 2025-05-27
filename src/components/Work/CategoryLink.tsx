@@ -9,7 +9,7 @@ export interface CategoryLinkProps {
 
 export const CategoryLink = component$<CategoryLinkProps>((props) => {
   return (
-       <a class={`hover:opacity-50 transition-all ${props.class}`} href={"/category/" + props.slug}> {props.label}</a>
+       <a class={`hover:opacity-50 transition-all ${props.class}`} href={props.slug}> {props.label}</a>
   
   );
 });

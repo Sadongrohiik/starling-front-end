@@ -37,7 +37,7 @@ brands, builds disruptive experiences, and solves unique challenges
 
 export const Header = component$<HeaderProps>((props) => {
   return (
-    <div class={`flex w-full flex-col-reverse lg:flex-row ${props.class}`} style={props.style}>
+    <div class={`flex w-full flex-col-reverse lg:flex-row mb-60 ${props.class}`} style={props.style}>
 
 
       <div class="left-header flex w-full flex-col md:w-full md:flex-row">
