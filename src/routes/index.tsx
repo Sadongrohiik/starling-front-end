@@ -127,6 +127,12 @@ import { HiArrowUpRightSolid } from "@qwikest/icons/heroicons";
 //   },
 // ];
 
+const tagline = { l1: "Radical Creativity—", l2: "Supercharged Technology." };
+const aboutText = `Starling is a global creative collective that creates innovative
+brands, builds disruptive experiences, and solves unique challenges
+            through art, design, and cutting-edge technology.`;
+
+
 export default component$(() => {
   const height = useSignal(0);
   const divRef = useSignal<HTMLElement>();
@@ -166,8 +172,17 @@ export default component$(() => {
         ref={divRef}
       >
         {/* <FramerTest client:idle /> */}
-        <Header class="relative z-20" />
-
+        <Header class="relative z-20" >
+                  <div class="mt-25 lg:mt-0">
+                    <h1 class="mb-5 text-[clamp(1.75rem,2.5vw,2.75rem)] ">
+          
+                      {tagline.l1} <br />
+                      {tagline.l2}
+                    </h1>
+                    <p class="font-fraktion w-full md:w-3/4 text-[clamp(1.2rem,1.5vw,1.9rem)]">{aboutText}</p>
+                  </div>
+        </Header>
+    
         <Resource
           value={worksResource}
           onPending={() => <div>Loading...</div>}
