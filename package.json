@@ -57,6 +57,7 @@
     "vitest": "^0.34.6"
   },
   "dependencies": {
+    "meilisearch": "^0.51.0",
     "motion": "^12.9.4"
   }
 }
